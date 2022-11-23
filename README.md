@@ -20,3 +20,9 @@ $ yarn
 ```shell
 $ yarn dev
 ```
+
+- To run the Storybook specification, use the following command:
+
+```shell
+$ yarn storybook
+```
