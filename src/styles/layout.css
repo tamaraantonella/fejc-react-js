@@ -1,0 +1,13 @@
+html, body {
+  @apply w-full;
+  @apply h-full;
+}
+
+#root {
+  @apply w-full;
+  @apply h-full;
+  @apply flex;
+  @apply items-center;
+  @apply justify-center;
+  @apply bg-gray-100;
+}

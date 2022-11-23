@@ -1,18 +1,18 @@
-import App from './App.jsx';
+import PhoneScreen from './components/PhoneScreen/index.js';
 
 export default [
   {
     path: '/',
-    element: <App/>,
-    errorElement: <span> 404 </span>,
+    element: <PhoneScreen/>,
+    errorElement: <span>404</span>,
     children: [
       {
         path: '/',
-        element: <span> Home! </span>
+        element: <span>Home!</span>
       },
       {
         path: 'paintings/:paintingId',
-        element: <span> Painting placeholder!</span>
+        element: <span>Painting placeholder!</span>
       }
     ]
   }
