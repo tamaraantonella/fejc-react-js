@@ -71,3 +71,10 @@ https://www.artic.edu/iiif/2/<image_id>/full/<width>,/0/default.<file_format>
 - `<image_id>`: string
 - `<width>`: number (pixels)
 - `<file_format>`: format of the image (e.g. png or jpg)
+
+## Implementation criteria
+
+- Styles: css, tailwindcss, styles in index.css using BEM.
+- Animation: css, tailwindcss or framer motion.
+- State management: standard react hooks, or react query.
+- Frequent, atomic commits.
