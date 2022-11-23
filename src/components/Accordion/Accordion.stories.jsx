@@ -6,22 +6,23 @@ export default {
   argTypes: {
     title: {
       description: 'The title to be displayed in the accordion header.',
-      control: 'text'
+      control: 'text',
+      defaultValue: 'Title'
     },
     subtitle: {
       description: 'The subtitle to be displayed in the accordion header.',
       control: 'text',
-      default: undefined
+      defaultValue: undefined
     },
     icon: {
-      description: 'The icon to be displayed in the accordion header. If undefined or not retrievable, it is not displayed in the view.',
+      description: 'The icon url to be displayed in the accordion header. If undefined or not retrievable, it is not displayed in the view.',
       control: 'text',
-      default: undefined
+      defaultValue: 'https://www.artic.edu/iiif/2/25c31d8d-21a4-9ea1-1d73-6a2eca4dda7e/full/200,/0/default.png'
     },
     expanded: {
       description: 'Toggle whether the accordion should render expanded or collapsed.',
       control: 'boolean',
-      default: false
+      defaultValue: false
     }
   },
   args: {
