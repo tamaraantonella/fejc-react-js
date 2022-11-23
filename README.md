@@ -30,6 +30,7 @@ $ yarn storybook
 ## Dependencies
 
 - Tailwind CSS [[docs](https://tailwindcss.com/docs/installation)]
+- Framer Motion [[docs](https://www.framer.com/docs/)]
 - React Query [[docs](https://tanstack.com/query/v4/docs/overview)]
 - React Router [[docs](https://reactrouter.com/en/6.4.3)]
 - Storybook [[docs](https://storybook.js.org/docs/react/get-started/introduction)]
