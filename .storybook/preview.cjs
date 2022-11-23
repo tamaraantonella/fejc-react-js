@@ -1,4 +1,7 @@
+import '@fontsource/montserrat';
+import '@fontsource/open-sans';
 import '../src/index.css';
+
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
