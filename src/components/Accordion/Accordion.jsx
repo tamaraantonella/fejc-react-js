@@ -6,7 +6,7 @@
 /**
  *
  * @param {string} title
- * @param {React.ReactNode} icon
+ * @param {React.ReactNode} [icon]
  * @param {boolean} [expanded]
  * @param {string} [subtitle]
  * @param {React.ReactNode} [children]
