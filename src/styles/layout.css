@@ -8,5 +8,4 @@ html, body, #root {
   @apply items-center;
   @apply justify-center;
   @apply bg-gray-100;
-  @apply bg-gray-200;
-}
+ }

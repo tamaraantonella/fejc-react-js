@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import PhoneScreen from './components/PhoneScreen/index.js';
+import PaintingDetails from './pages/PaintingDetails/index.js';
 
 export default [
   {
@@ -13,7 +14,7 @@ export default [
       },
       {
         path: 'paintings/:paintingId',
-        element: <span>Painting placeholder!</span>
+        element: <PaintingDetails/>
       }
     ]
   }

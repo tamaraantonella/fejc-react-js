@@ -4,7 +4,7 @@ export const PhoneScreen = ({
 }) => {
   return (
     <div
-      className={`${className} w-[360px] h-[640px] border-gray-200 shadow-xl rounded-md bg-gray-200 overflow-hidden`}
+      className={`${className} w-[360px] h-[640px] shadow-xl rounded-md bg-gray-200`}
     >
       {children}
     </div>

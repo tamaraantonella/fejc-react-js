@@ -3,3 +3,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.page {
+  @apply flex;
+  @apply flex-col;
+  @apply h-full;
+  @apply items-stretch;
+
+  @apply py-6;
+  @apply px-4;
+  @apply gap-6;
+  @apply overflow-x-auto;
+}
+
+.title-2 {
+  @apply font-montserrat;
+  @apply text-heading-2;
+  @apply font-normal;
+}
+
+.painting-frame {
+  @apply bg-black;
+  @apply p-2.5;
+  @apply rounded-md;
+}
+
+.tag {
+  @apply flex;
+  @apply items-center;
+  @apply gap-2.5;
+
+  @apply py-1;
+  @apply px-2;
+
+  @apply font-open-sans;
+  @apply text-sm;
+  @apply bg-white;
+  @apply rounded-sm;
+  @apply text-black;
+}
+
+.tag__title {
+  @apply w-20;
+  @apply font-bold;
+}
+
+.tag__value {
+  @apply flex-grow;
+  @apply font-open-sans;
+}
+
+.tag.tag--comment {
+  @apply py-4;
+  @apply px-2;
+
+  @apply text-xs;
+  @apply text-center;
+  @apply text-comment;
+}
