@@ -25,16 +25,20 @@ export const Accordion = ({
   onChange,
 }) => {
   return (
-    <div>
-      <div >
-        <div >
-          <div >
+    <div
+      className={`${className} px-4 py-5 flex flex-col ${
+        expanded && "shadow-accordion"
+      }`}
+    >
+      <div className="flex text-text">
+        <div className="flex flex-col justify-center items-center p-0 gap-[10px] relative w-[46px] h-[46px] border border-black rounded-[23px] box-border">
+          <div className="w-[46px] h-[46px] flex grow rounded-full overflow-hidden">
             {icon}
           </div>
         </div>
-        <div >
-          <p >{title}</p>
-          <p >{subtitle}</p>
+        <div className="flex flex-col ml-3 w-[170px] h-[46px]">
+          <p className="font-semibold leading-[21.79px] font-sans">{title}</p>
+          <p className="text-sm">{subtitle}</p>
         </div>
         {expanded ? (
           <button>
@@ -68,7 +72,7 @@ export const Accordion = ({
           </button>
         )}
       </div>
-      <div>
+      <div className="w-full grid grid-cols-2 gap-[14px]">
         {expanded && { children }}
       </div>
     </div>
