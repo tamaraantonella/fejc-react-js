@@ -14,7 +14,9 @@ module.exports = {
         'heading-2': ['1.5rem','1.2']
       },
       colors: {
-        comment: '#684E4E'
+        comment: '#684E4E',
+        text: '#4D4141',
+        black:'#000000'
       }
     }
   },
