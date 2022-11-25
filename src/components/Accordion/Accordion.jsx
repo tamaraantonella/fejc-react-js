@@ -26,9 +26,9 @@ export const Accordion = ({
 }) => {
   return (
     <div
-      className={`${className} px-4 py-5 flex flex-col ${
-        expanded && "shadow-accordion"
-      }`}
+      className={`${
+        expanded ? "shadow-accordion w-[340px]" : " w-[308px]"
+      } ${className}`}
     >
       <div className="flex text-text">
         <div className="flex flex-col justify-center items-center p-0 gap-[10px] relative w-[46px] h-[46px] border border-black rounded-[23px] box-border">
@@ -36,12 +36,16 @@ export const Accordion = ({
             {icon}
           </div>
         </div>
-        <div className="flex flex-col ml-3 w-[170px] h-[46px]">
+        <div
+          className={`flex flex-col ml-3 ${
+            expanded ? "w-[203px] h-[45px]" : "w-[170px] h-[46px]"
+          }`}
+        >
           <p className="font-semibold leading-[21.79px] font-sans">{title}</p>
           <p className="text-sm">{subtitle}</p>
         </div>
-        {expanded ? (
-          <button>
+        <button className="px-2 " onClick={onChange}>
+          {expanded ? (
             <svg
               width="20"
               height="12"
@@ -54,9 +58,7 @@ export const Accordion = ({
                 fill="#D0D0D0"
               />
             </svg>
-          </button>
-        ) : (
-          <button onClick={onChange}>
+          ) : (
             <svg
               width="20"
               height="12"
@@ -69,11 +71,12 @@ export const Accordion = ({
                 fill="#CACACA"
               />
             </svg>
-          </button>
-        )}
+          )}
+        </button>
       </div>
       <div className="w-full grid grid-cols-2 gap-[14px]">
-        {expanded && { children }}
+        {/* {expanded && { children }} */}
+        {expanded && <h1>Hola</h1>}
       </div>
     </div>
   );
