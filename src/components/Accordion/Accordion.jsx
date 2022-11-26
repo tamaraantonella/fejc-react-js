@@ -74,9 +74,9 @@ export const Accordion = ({
           )}
         </button>
       </div>
-      <div className="w-full grid grid-cols-2 gap-[14px]">
-        {/* {expanded && { children }} */}
-      </div>
+      {expanded && (
+        <div className="w-full grid grid-cols-2 gap-[14px] py-4">{children}</div>
+      )}
     </div>
   );
 };
