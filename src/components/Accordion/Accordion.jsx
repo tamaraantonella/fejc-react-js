@@ -32,7 +32,9 @@ export const Accordion = ({
     >
       <div className="flex text-text">
         <div className="flex flex-col justify-center items-center p-0 gap-[10px] relative w-[46px] h-[46px] border border-black rounded-[23px] box-border">
-          {icon}
+          <div className="w-[46px] h-[46px] flex grow rounded-full overflow-hidden">
+            {icon}
+          </div>
         </div>
         <div
           className={`flex flex-col ml-3 ${
