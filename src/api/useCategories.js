@@ -1,20 +1,31 @@
 import { useQuery } from '@tanstack/react-query';
 
+
+
 const getCategories = (paintings) => {
-  const cat = [];
-  paintings?.map((paint) => {
-    if (paint.category_ids.length > 0)
+  const pictures = [];
+  paintings?.forEach((painting) => {
+    pictures?.push(painting.category_ids);
+  })
+  const result = new Set(pictures.flat());
+  const unique = [...result];
+  const finalIds = []
+  let uniqueIndex=0
+  for (let index = 0; index < paintings?.length; index++)
+  {
+    if (paintings[index]?.category_ids.length > 1 && paintings[index]?.category_ids.includes(unique[uniqueIndex]) && !finalIds?.includes(paintings[index]?.image_id))
     {
-      paint.category_ids.forEach((element) => {
-        cat.includes(element) ? null : cat.push(element);
-      });
-    } else
-    {
-      cat.includes(paint.category_ids) ? null : cat.push(paint.category_ids);
+      finalIds?.push(paintings[index]?.image_id)
+      uniqueIndex++
     }
-  });
-  const categories = cat.join(',');
-  return fetch(`https://api.artic.edu/api/v1/category-terms?ids=` + categories)
+    if (paintings[index]?.category_ids.length === 1 && !finalIds?.includes(paintings[index]?.image_id) && paintings[index]?.category_ids.includes(unique[uniqueIndex]))
+    {
+      finalIds?.push(paintings[index]?.image_id)
+      uniqueIndex++
+    }
+  }
+
+  return fetch(`https://api.artic.edu/api/v1/category-terms?ids=` + unique.join(','))
     .then(async (response) => (await response.json()))
     .then(({ data }) => {
       return data.map((category) => ({
@@ -22,6 +33,7 @@ const getCategories = (paintings) => {
         title: category.title,
       }));
     })
+    .then((data) => { return { categories: data, pictures: finalIds } })
 
 }
 
