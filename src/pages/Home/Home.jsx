@@ -8,7 +8,6 @@ export const Home = () => {
   const { data } = useAllPaintings();
   const getCategories = useCategories(data);
   const categories = getCategories?.data?.categories;
-  console.log("🚀 ~ file: Home.jsx ~ line 10 ~ Home ~ categories", categories);
   const pictures = getCategories?.data?.pictures;
   const [expanded, setExpanded] = useState({});
 
@@ -19,7 +18,7 @@ export const Home = () => {
     <div className="page">
       <h2 className="title-2">Mr. Van G</h2>
       <div className=" flex flex-col items-center gap-[31px]">
-        {categories?.map((category, index) => (
+        {categories?.length > 1 && categories?.map((category, index) => (
           <Accordion
             title={category.title}
             icon={
