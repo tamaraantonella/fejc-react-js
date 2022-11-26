@@ -2,11 +2,13 @@ import { useState } from "react";
 import { useAllPaintings } from "../../api/useAllPaintinsg";
 import { useCategories } from "../../api/useCategories";
 import { Accordion } from "../../components/Accordion/Accordion";
+import { IconLink } from "../../components/IconLink/IconLink";
 
 export const Home = () => {
   const { data } = useAllPaintings();
   const getCategories = useCategories(data);
   const categories = getCategories?.data?.categories;
+  console.log("🚀 ~ file: Home.jsx ~ line 10 ~ Home ~ categories", categories);
   const pictures = getCategories?.data?.pictures;
   const [expanded, setExpanded] = useState({});
 
@@ -31,7 +33,26 @@ export const Home = () => {
             onChange={handleChange.bind(null, category.id)}
             className=" px-4 py-5 flex flex-col box-border bg-accordion_bg rounded-[10px]"
             key={category.id}
-          ></Accordion>
+          >
+            {data
+              ?.filter((artwork) =>
+                artwork.category_ids.includes(categories[index].id)
+              )
+              .map((item) => (
+
+                  <IconLink
+                    key={item.id}
+                    label={item.title}
+                    icon={
+                      <img
+                        className="h-full w-full object-cover"
+                        src={`https://www.artic.edu/iiif/2/${item.image_id}/full/300,/0/default.jpg`}
+                      ></img>
+                    }
+                  to={`/paintings/${item.id}`}
+                    />
+              ))}
+          </Accordion>
         ))}
       </div>
     </div>
