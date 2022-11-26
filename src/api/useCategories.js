@@ -14,20 +14,25 @@ const getCategories = (paintings) => {
   for (let index = 0; index < paintings?.length; index++)
   {
     (paintings[index]?.category_ids?.includes(unique[uniqueIndex]) && !finalIds?.includes(paintings[index]?.image_id))
-      && (finalIds?.push(paintings[index]?.image_id),uniqueIndex++
-    )
+      && (finalIds?.push(paintings[index]?.image_id), uniqueIndex++
+      )
   }
-
-  return fetch(`https://api.artic.edu/api/v1/category-terms?ids=` + unique.join(','))
-    .then(async (response) => (await response.json()))
-    .then(({ data }) => {
-      return data.map((category) => ({
-        id: category.id,
-        title: category.title,
-      }));
-    })
-    .then((data) => { return { categories: data, pictures: finalIds } })
-
+  if (uniqueIndex !== 0)
+  {
+    return fetch(`https://api.artic.edu/api/v1/category-terms?ids=` + unique.join(','))
+      .then(async (response) => (await response.json()))
+      .then(({ data }) => {
+        return data.map((category) => ({
+          id: category.id,
+          title: category.title,
+        }));
+      })
+      .then((data) => { return { categories: data, pictures: finalIds } })
+  }
+  else
+  {
+    return { data: null}
+  }
 }
 
 export const useCategories = (paintings) => {
