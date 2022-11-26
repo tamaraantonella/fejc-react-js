@@ -24,7 +24,7 @@ export const Home = () => {
             icon={
               <img
                 className="h-full w-full object-cover"
-                src={`https://www.artic.edu/iiif/2/${pictures[index]}/full/300,/0/default.jpg`}
+                src={`https://www.artic.edu/iiif/2/${pictures[index]}/full/50,/0/default.jpg`}
               ></img>
             }
             expanded={expanded[category.id]}
