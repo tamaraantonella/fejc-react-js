@@ -36,7 +36,7 @@ export const Accordion = ({
   };
   return (
     <motion.div
-      className={`h-auto ${
+      className={`h-auto px-4 py-5 flex flex-col  bg-accordion_bg rounded-[10px] ${
         expanded ? "shadow-accordion w-[340px]" : " w-[308px]"
       } ${className}`}
       animate={expanded ? "open" : "closed"}
@@ -45,7 +45,11 @@ export const Accordion = ({
       initial={{ height: "auto" }}
     >
       <div className="flex text-text">
-        <div className="flex flex-col justify-center items-center p-0 gap-[10px] relative w-[46px] h-[46px] border border-black rounded-[23px] box-border">
+        <div
+          className={`flex flex-col justify-center items-center p-0 gap-[10px] relative w-[46px] h-[46px]   rounded-[23px] box-border ${
+            icon !== undefined && "border border-black"
+          }`}
+        >
           <div className="w-[46px] h-[46px] flex grow rounded-full overflow-hidden">
             {icon}
           </div>
@@ -72,7 +76,7 @@ export const Accordion = ({
         </div>
         <motion.button
           className="px-2 "
-          onClick={onChange}
+          onClick={() => onChange(!expanded)}
           animate={expanded ? "open" : "close"}
           variants={button_variants}
           transition={{ duration: 0.4, ease: "easeInOut" }}
@@ -91,11 +95,7 @@ export const Accordion = ({
           </svg>
         </motion.button>
       </div>
-      {expanded && (
-        <div className="w-full grid grid-cols-2 gap-[14px] py-4">
-          {children}
-        </div>
-      )}
+      {expanded && children}
     </motion.div>
   );
 };
