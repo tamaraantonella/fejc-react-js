@@ -30,11 +30,19 @@ export const Accordion = ({
     open: { rotate: 180 },
     closed: { rotate: 0 },
   };
+  const container_variants = {
+    open: { width: "340px", height: "auto" },
+    closed: { width: "308px", height: "auto" },
+  };
   return (
-    <div
-      className={`${
+    <motion.div
+      className={`h-auto ${
         expanded ? "shadow-accordion w-[340px]" : " w-[308px]"
       } ${className}`}
+      animate={expanded ? "open" : "closed"}
+      variants={container_variants}
+      transition={{ duration: 0.3 }}
+      initial={{ height: "auto" }}
     >
       <div className="flex text-text">
         <div className="flex flex-col justify-center items-center p-0 gap-[10px] relative w-[46px] h-[46px] border border-black rounded-[23px] box-border">
@@ -67,7 +75,7 @@ export const Accordion = ({
           onClick={onChange}
           animate={expanded ? "open" : "close"}
           variants={button_variants}
-          transition={{ duration: 0.2 }}
+          transition={{ duration: 0.3 }}
         >
           <svg
             width="20"
@@ -88,6 +96,6 @@ export const Accordion = ({
           {children}
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
