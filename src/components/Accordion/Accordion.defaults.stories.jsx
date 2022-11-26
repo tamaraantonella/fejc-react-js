@@ -34,7 +34,7 @@ const Template = (props) => {
 
 export const SimpleStory = Template.bind({});
 SimpleStory.storyName = 'Title and content';
-SimpleStory.args = {};
+SimpleStory.args = {expanded:true};
 
 export const SimpleStoryWithSubtitle = Template.bind({});
 SimpleStoryWithSubtitle.storyName = 'Title, subtitle and content';
