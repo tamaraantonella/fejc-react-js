@@ -37,12 +37,24 @@ export const Accordion = ({
           </div>
         </div>
         <div
-          className={`flex flex-col ml-3 ${
-            expanded ? "w-[203px] h-[45px]" : "w-[170px] h-[46px]"
+          className={`flex flex-col justify-center ml-3 ${
+            expanded ? "w-[203px] min-h-[45px]" : "w-[170px] h-[46px]"
           }`}
         >
-          <p className="font-semibold leading-[21.79px] font-sans">{title}</p>
-          <p className="text-sm">{subtitle}</p>
+          <p
+            className={`w-full ${
+              !expanded && "whitespace-nowrap text-ellipsis overflow-hidden"
+            } font-semibold leading-[21.79px] font-sans`}
+          >
+            {title}
+          </p>
+          <p
+            className={`text-sm w-full ${
+              !expanded && "whitespace-nowrap text-ellipsis overflow-hidden"
+            }`}
+          >
+            {subtitle}
+          </p>
         </div>
         <button className="px-2 " onClick={onChange}>
           {expanded ? (
@@ -75,7 +87,9 @@ export const Accordion = ({
         </button>
       </div>
       {expanded && (
-        <div className="w-full grid grid-cols-2 gap-[14px] py-4">{children}</div>
+        <div className="w-full grid grid-cols-2 gap-[14px] py-4">
+          {children}
+        </div>
       )}
     </div>
   );
