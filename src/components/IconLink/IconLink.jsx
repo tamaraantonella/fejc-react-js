@@ -15,6 +15,6 @@ export const IconLink = ({
   to
 }) => {
   return (
-    <><Link to={to}>{label}</Link></>
+    <><Link to={to}>{icon}{label}</Link></>
   );
 };

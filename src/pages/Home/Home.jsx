@@ -22,7 +22,7 @@ export const Home = () => {
             title={category.title}
             icon={
               <img
-                className="object-cover w-[46px] h-[46px]  rounded-full overflow-hidden"
+                className="h-full w-full object-cover"
                 src={`https://www.artic.edu/iiif/2/${pictures[index]}/full/300,/0/default.jpg`}
               ></img>
             }
