@@ -41,7 +41,7 @@ export const Accordion = ({
       } ${className}`}
       animate={expanded ? "open" : "closed"}
       variants={container_variants}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.4, ease: "easeInOut" }}
       initial={{ height: "auto" }}
     >
       <div className="flex text-text">
@@ -75,7 +75,7 @@ export const Accordion = ({
           onClick={onChange}
           animate={expanded ? "open" : "close"}
           variants={button_variants}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
         >
           <svg
             width="20"
