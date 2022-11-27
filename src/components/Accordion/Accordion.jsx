@@ -43,9 +43,9 @@ export const Accordion = ({
       variants={container_variants}
       transition={{ duration: 0.2 }}
     >
-      <div className={`flex text-text ${expanded && "mb-3"}`}>
+      <div className={`flex text-text items-center ${expanded && "mb-3"}`}>
         <div
-          className={`flex flex-col justify-center items-center p-0 gap-[10px] relative w-[46px] h-[46px]   rounded-[23px] box-border ${
+          className={`flex flex-col justify-center items-center  w-[46px] h-[46px] rounded-[23px]  ${
             icon !== undefined && "border border-black"
           }`}
         >
@@ -66,7 +66,7 @@ export const Accordion = ({
             {title}
           </p>
           <p
-            className={`text-sm w-full min-h-[20px] ${
+            className={`text-sm w-full  ${
               !expanded && "whitespace-nowrap text-ellipsis overflow-hidden"
             }`}
           >
@@ -95,15 +95,17 @@ export const Accordion = ({
         </motion.button>
       </div>
       <AnimatePresence initial={false}>
-        {expanded && <motion.div
-          key={expanded}
-          animate={{ height: 'auto', opacity: 1 }}
-          initial={{ height: 0, opacity: 0 }}
-          exit={{ height: 0, visibility: 'hidden' }}
-          transition={{ duration: 0.2 }}
-        >
-          {children}
-        </motion.div>}
+        {expanded && (
+          <motion.div
+            key={expanded}
+            animate={{ height: "auto", opacity: 1 }}
+            initial={{ height: 0, opacity: 0 }}
+            exit={{ height: 0, visibility: "hidden" }}
+            transition={{ duration: 0.2 }}
+          >
+            {children}
+          </motion.div>
+        )}
       </AnimatePresence>
     </motion.div>
   );
