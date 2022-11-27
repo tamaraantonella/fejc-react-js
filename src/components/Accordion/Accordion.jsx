@@ -43,7 +43,7 @@ export const Accordion = ({
       variants={container_variants}
       transition={{ duration: 0.2 }}
     >
-      <div className={`flex text-text ${expanded && "mb-3"}`}>
+      <div className={`flex text-text items-center ${expanded && "mb-3"}`}>
         <div
           className={`flex flex-col justify-center items-center p-0 gap-[10px] relative w-[46px] h-[46px]   rounded-[23px] box-border ${
             icon !== undefined && "border border-black"
@@ -55,7 +55,7 @@ export const Accordion = ({
         </div>
         <div
           className={`flex flex-col justify-center ml-3 ${
-            expanded ? "w-[203px] min-h-[45px]" : "w-[170px] h-[46px]"
+            expanded ? "w-[203px] min-h-[45px]" : "w-[170px] "
           }`}
         >
           <p
@@ -66,8 +66,9 @@ export const Accordion = ({
             {title}
           </p>
           <p
-            className={`text-sm w-full min-h-[20px] ${
-              !expanded && "whitespace-nowrap text-ellipsis overflow-hidden"
+            className={`text-sm w-full  ${
+              !expanded &&
+              " line-clamp-2 text-ellipsis overflow-hidden"
             }`}
           >
             {subtitle}
@@ -95,15 +96,17 @@ export const Accordion = ({
         </motion.button>
       </div>
       <AnimatePresence initial={false}>
-        {expanded && <motion.div
-          key={expanded}
-          animate={{ height: 'auto', opacity: 1 }}
-          initial={{ height: 0, opacity: 0 }}
-          exit={{ height: 0, visibility: 'hidden' }}
-          transition={{ duration: 0.2 }}
-        >
-          {children}
-        </motion.div>}
+        {expanded && (
+          <motion.div
+            key={expanded}
+            animate={{ height: "auto", opacity: 1 }}
+            initial={{ height: 0, opacity: 0 }}
+            exit={{ height: 0, visibility: "hidden" }}
+            transition={{ duration: 0.2 }}
+          >
+            {children}
+          </motion.div>
+        )}
       </AnimatePresence>
     </motion.div>
   );
