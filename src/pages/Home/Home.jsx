@@ -31,10 +31,9 @@ export const Home = () => {
               expanded={expanded[category.id]}
               subtitle={category.description}
               onChange={handleChange.bind(null, category.id)}
-              className=" px-4 py-5 flex flex-col  bg-accordion_bg rounded-[10px]"
               key={category.id}
             >
-              <div className="w-full grid grid-cols-2 gap-[14px] py-4">
+              <div className="w-full grid grid-cols-2 gap-[14px] ">
                 {data
                   ?.filter((artwork) =>
                     artwork.category_ids.includes(categories[index].id)
