@@ -15,7 +15,7 @@
  * @returns {JSX.Element}
  * @constructor
  */
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const Accordion = ({
   title,
@@ -31,20 +31,19 @@ export const Accordion = ({
     closed: { rotate: 0 },
   };
   const container_variants = {
-    open: { width: "340px", height: "auto" },
-    closed: { width: "308px", height: "auto" },
+    open: { width: "340px" },
+    closed: { width: "308px" },
   };
   return (
     <motion.div
-      className={`h-auto px-4 py-5 flex flex-col  bg-accordion_bg rounded-[10px] ${
+      className={` px-4 py-5 flex flex-col  bg-accordion_bg rounded-[10px] ${
         expanded ? "shadow-accordion w-[340px]" : " w-[308px]"
-      } ${className}`}
+      } `}
       animate={expanded ? "open" : "closed"}
       variants={container_variants}
-      transition={{ duration: 0.4, ease: "easeInOut" }}
-      initial={{ height: "auto" }}
+      transition={{ duration: 0.2 }}
     >
-      <div className="flex text-text">
+      <div className={`flex text-text ${expanded && "mb-3"}`}>
         <div
           className={`flex flex-col justify-center items-center p-0 gap-[10px] relative w-[46px] h-[46px]   rounded-[23px] box-border ${
             icon !== undefined && "border border-black"
@@ -67,7 +66,7 @@ export const Accordion = ({
             {title}
           </p>
           <p
-            className={`text-sm w-full ${
+            className={`text-sm w-full min-h-[20px] ${
               !expanded && "whitespace-nowrap text-ellipsis overflow-hidden"
             }`}
           >
@@ -79,7 +78,7 @@ export const Accordion = ({
           onClick={() => onChange(!expanded)}
           animate={expanded ? "open" : "close"}
           variants={button_variants}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
         >
           <svg
             width="20"
@@ -95,7 +94,17 @@ export const Accordion = ({
           </svg>
         </motion.button>
       </div>
-      {expanded && children}
+      <AnimatePresence initial={false}>
+        {expanded && <motion.div
+          key={expanded}
+          animate={{ height: 'auto', opacity: 1 }}
+          initial={{ height: 0, opacity: 0 }}
+          exit={{ height: 0, visibility: 'hidden' }}
+          transition={{ duration: 0.2 }}
+        >
+          {children}
+        </motion.div>}
+      </AnimatePresence>
     </motion.div>
   );
 };
