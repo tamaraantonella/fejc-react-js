@@ -16,7 +16,7 @@ const getPaintings = () => {
 };
 
 export const useAllPaintings = () => {
-  return useQuery(['artworks'], () => getPaintings(), {
+  return useQuery(['paintings'], () => getPaintings(), {
     staleTime: Infinity
   });
 }

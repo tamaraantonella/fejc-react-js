@@ -7,8 +7,8 @@ import { IconLink } from "../../components/IconLink/IconLink";
 export const Home = () => {
   const { data } = useAllPaintings();
   const getCategories = useCategories(data);
-  const categories = getCategories?.data?.categories;
-  const pictures = getCategories?.data?.pictures;
+  const categories = getCategories?.data;
+
   const [expanded, setExpanded] = useState({});
 
   const handleChange = (id) => {
@@ -25,7 +25,7 @@ export const Home = () => {
               icon={
                 <img
                   className="h-full w-full object-cover"
-                  src={`https://www.artic.edu/iiif/2/${pictures[index]}/full/50,/0/default.jpg`}
+                  src={`https://www.artic.edu/iiif/2/${category.image_id}/full/50,/0/default.jpg`}
                 ></img>
               }
               expanded={expanded[category.id]}
